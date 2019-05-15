@@ -1,7 +1,7 @@
 import BaseHTTPServer
 
-HOST_NAME = '172.31.2.81' ## your own private IP
-PORT_NUMBER = 80 ## make sure nothing is running on port 80
+HOST_NAME = '172.31.2.81'
+PORT_NUMBER = 443
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 

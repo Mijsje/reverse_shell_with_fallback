@@ -12,9 +12,7 @@ import select
 import random
 import asyncore
 
-ICMP_ECHO_REQUEST = 8
-
-server_IP = '("10.10.10.10",0)' ## server IP and random port
+ICMP_ECHO_REQUEST = 8 # Seems to be the same on Solaris.
 
 ICMP_CODE = socket.getprotobyname('icmp')
 
@@ -80,7 +78,7 @@ def create_packet(id, data):
 packet_id = 1515
 packet = create_packet(packet_id, data)
 while packet:
-		sent = soc.sendto(packet, server_IP)
+		sent = soc.sendto(packet, ("34.242.70.77", 1))
 		packet = packet[sent:]
 
 
@@ -103,5 +101,5 @@ while True:
 		pakcet_id = 1515
 		packet = create_packet(packet_id, rr)
 		while packet:
-			sent = soc.sendto(packet, server_IP)
+			sent = soc.sendto(packet, ("34.242.70.77", 0))
 			packet = packet[sent:]

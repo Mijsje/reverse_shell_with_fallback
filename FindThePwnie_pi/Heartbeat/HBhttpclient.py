@@ -7,7 +7,6 @@ from datetime import datetime
 import urllib
 from urllib2 import urlopen
 
-
 def get_ip():
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	try:
@@ -20,21 +19,12 @@ def get_ip():
 	return IP
 
 
-while 1:
+my_ip = urlopen('http://ip.42.pl/raw').read()
+message = my_ip + "," + datetime.now().strftime('%Y-%m-%d,%H:%M:%S') + "," + socket.gethostname() + "," + get_ip()
+print message
 
-	my_ip = urlopen('http://ip.42.pl/raw').read()
-	message = my_ip + "," + datetime.now().strftime('%Y-%m-%d,%H:%M:%S') + "," + socket.gethostname() + "," + get_ip()
-	print message
+url = "http://34.242.70.77/upload/"
+data = { 'content' : message }
 
-	url = "http://34.242.70.77/upload/"
-
-	data = { 'content' : message }
-
-	r = requests.post(url, data=data)
-
-
-
-
-	time.sleep(60)
-
+r = requests.post(url, data=data)
 

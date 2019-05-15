@@ -1,0 +1,13 @@
+[Unit]
+Description=Find The Pwnie
+
+[Service]
+type=simple
+WorkingDirectory=/root/FindThePwnie/
+ExecStart=python FallBackMechanism.py  
+restart=on-failure
+restartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target

