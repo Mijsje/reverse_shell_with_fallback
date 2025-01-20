@@ -18,7 +18,7 @@ def get_ip():
 		s.close()
 	return IP
 
-
+#Droni left a comment to tert github! Jah Bless!
 my_ip = urlopen('http://ip.42.pl/raw').read()
 message = my_ip + "," + datetime.now().strftime('%Y-%m-%d,%H:%M:%S') + "," + socket.gethostname() + "," + get_ip()
 print message
